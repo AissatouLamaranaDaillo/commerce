@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Categorie</ion-title>
+    <ion-icon  class="icon"slot="end" name="cart" 
+      routerLink="/listpanier" >
+        </ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+  <ion-grid class="cols"  *ngFor="let item of userList"  
+   [routerLink]="['/produit/', +item.id]" >
+        <ion-row >
+          <ion-col class="overlay-image" >
+          
+            <div >
+  <ion-img class="image"[src]="'https://bakeliapi.000webhostapp.com/catImages/'+ item.imagecat">
+            </ion-img>
+            <h2 class="ion-text-center">{{item.nomcat}}</h2>
+          
+          </div>
+        </ion-col>
+        </ion-row>
+      </ion-grid>
+</ion-content>
+

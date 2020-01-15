@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="detailproduit/:id"></ion-back-button>
+    </ion-buttons>
+    <ion-title>listpanier</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let p of ajtPanier; let i= index">
+    <div  *ngFor="let pro of produits">
+      <div  *ngIf ="p.id==pro.id">
+          {{pro.nomprod}}
+          <ion-img slot="start" [src]="'https://bakeliapi.000webhostapp.com/prodImages/' + pro.imageprod"></ion-img>
+    
+    <div class="icon">
+    <ion-icon (click)="decrement(p)" name="remove-circle"></ion-icon>
+    {{p.quantite}}
+    <ion-icon name="add-circle"  (click)="increment(p)" ></ion-icon>
+  </div>
+    <ion-icon name="close-circle-outline"  (click)="remove(p, i)"></ion-icon>
+  </div>
+</div>
+<ion-button shape="round" type="submit" expand="block" 
+>Valider mon panier</ion-button>
+  </ion-card>
+ 
+<ion-card>
+ 
+</ion-card>
+<ion-card>
+
+</ion-card>
+</ion-content>
+
+
+
+<!--
+<ion-card  *ngFor="let p of ajtPanier">
+  id :{{p.id}}
+  <ion-icon  (click)="decrement()" name="remove-circle" ></ion-icon>
+  <p>  {{qteCommande}}</p>
+  <ion-icon name="add-circle"  (click)="increment()" ></ion-icon>
+  <ion-icon name="close-circle-outline" (click)="remove()"></ion-icon>
+</ion-card>
+<ion-button shape="round" type="submit" expand="block" 
+>Valider mon panier</ion-button>
+
+-->

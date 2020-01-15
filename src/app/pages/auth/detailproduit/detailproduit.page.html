@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="produit/:id"></ion-back-button>
+        </ion-buttons>
+        <ion-icon  class="icon"slot="end" name="cart" 
+      routerLink="/listpanier"  >
+      <i class="fa fa-shopping-cart">{{(shoppingCartItems$ | async).length}}</i>
+        </ion-icon>
+    <ion-title>detailproduit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   <ion-card *ngFor="let pw of detailByProd   "  >
+     <ion-img [src]="'https://bakeliapi.000webhostapp.com/prodImages/' + pw.imageprod"></ion-img>
+     <h3 class="et1" >{{pw.nomprod}}</h3>
+     <p class="et">{{pw.prix}}CFA
+     </p>
+     <p class="bou">
+     <ion-button (click)="decrement()">-</ion-button>
+     <ion-button>{{qteCommande}}</ion-button>
+     <ion-button (click)="increment()" >+</ion-button>
+     </p>
+     <ion-button shape="round" type="submit" expand="block" 
+     (click)= "ajoutPanier(pw) " >Ajouter au Panier</ion-button>
+    </ion-card>
+    
+  
+
+</ion-content>

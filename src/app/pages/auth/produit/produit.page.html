@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="categorie"></ion-back-button>
+        </ion-buttons>
+        <ion-icon  class="icon"slot="end" name="cart" 
+        routerLink="/listpanier" >
+          </ion-icon>
+    <ion-title>produit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-grid >
+<ion-row>
+  <ion-col *ngFor="let p of prodBycat" size="6"  [routerLink]="['/detailproduit/', +p.id]">
+    <div class="cols">
+  <ion-img [src]="'https://bakeliapi.000webhostapp.com/prodImages/' + p.imageprod"></ion-img>
+  <h4 class="et">{{p.nomprod}}</h4>
+  <p class="ets">{{p.prix}}CFA</p>
+  
+</div>
+  </ion-col>
+</ion-row>
+</ion-grid>
+</ion-content>
